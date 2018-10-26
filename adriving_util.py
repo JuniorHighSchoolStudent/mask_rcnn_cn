@@ -11,7 +11,7 @@ label_to_name = {33: 'car',
 
 # 训练时不计算群目标
 label_to_class = {33:1, 34:2, 35:3, 36:4, 38:5, 39:6, 40:7}
-# 训练id参考labels_appolo.py
+# 标注id参考labels_appolo.py
 # label_to_class = {33:1, 34:2, 35:3, 36:4, 38:5, 39:6, 40:7,
 #                 161:1, 162:2, 163:3, 164:4, 166:5, 167:6, 168:7}
 class_to_label = {1:33, 2:34, 3:35, 4:36, 5:38, 6:39, 7:40}
@@ -21,6 +21,7 @@ def get_label_name(image_name):
     label_name += '_instanceIds.png'
     return label_name
 
+# 根据定义查询mask中是否有gt
 def contain_instance(mask):
     mask_int = np.floor(mask/1000).astype(int)
     instances = np.unique(mask_int)
